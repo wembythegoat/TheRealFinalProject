@@ -37,8 +37,16 @@ public class GuardStats extends PlayerStats implements StatsOperations {
         return (int) calculateAssistToTurnoverRatio(turnovers) - (int) calculateAssistToTurnoverRatio(o.turnovers);
     }
 
-    public void addStats(int points) {
-
+    public void addStats(int points, int assists, int steals) {
+        super.addStats(points, assists, 0);
+        this.steals += steals;
     }
-    // TODO continue the guard
+
+    public int getSteals() {
+        return steals;
+    }
+
+    public void setSteals(int steals) {
+        this.steals = steals;
+    }
 }

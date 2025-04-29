@@ -22,13 +22,11 @@ public abstract class PlayerStats implements Comparable<PlayerStats>, StatsOpera
     }
 
     /**
-     *
      * @param points
      * @param assists
      * @param rebounds
-     * @param turnovers
      */
-    public void addStats(int points, int assists, int rebounds, int turnovers) {
+    public void addStats(int points, int assists, int rebounds) {
         if (points < 0 || assists < 0 || rebounds < 0 || turnovers < 0) {
             throw new IllegalArgumentException("Stats cannot be negative.");
         }
