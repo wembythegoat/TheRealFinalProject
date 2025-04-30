@@ -1,5 +1,5 @@
 import java.io.Serializable;
-public class ForwardStats extends PlayerStats implements StatsOperations, Comparable<ForwardStats> {
+public class ForwardStats extends PlayerStats implements StatsOperations {
     private double fieldGoalPercentage;
 
     public ForwardStats() {
@@ -25,14 +25,10 @@ public class ForwardStats extends PlayerStats implements StatsOperations, Compar
         return (fgPercentage + super.getRebounds() + super.getAssists()) / 3;
     }
 
-    /**
-     * Compares two ForwardStats players based on efficiency rating.
-     * @param other Another ForwardStats player.
-     * @return -1, 0, or 1 based on comparison.
-     */
+    //TODO COMPLETE THE COMPARE
     @Override
-    public int compareTo(ForwardStats other) {
-        return Double.compare(this.fieldGoalPercentage, other.fieldGoalPercentage);
+    public int compareTo(PlayerStats o) {
+        return 0;
     }
 
     /**
