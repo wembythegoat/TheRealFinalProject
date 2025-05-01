@@ -27,11 +27,9 @@ public class TeamGameStats extends GameStats {
     /**
      *
      * @param points
-     * @param assists
-     * @param rebounds
      * @param turnovers
      */
-    public void addStats(int points, int assists, int rebounds, int turnovers) {
+    public void addStats(int points, int turnovers) {
         addScore(points);
         totalTurnovers += turnovers;
         totalFouls += (int) (Math.random() * 5);

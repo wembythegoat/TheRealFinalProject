@@ -20,6 +20,10 @@ public class GuardStats extends PlayerStats implements StatsOperations {
             return 0;
         }
 
+        if (turnovers < 0) {
+            throw new IllegalArgumentException("Turnovers cannot be negative.");
+        }
+
         return (double) assists / turnovers;
     }
 
@@ -34,10 +38,20 @@ public class GuardStats extends PlayerStats implements StatsOperations {
 
     @Override
     public int compareTo(PlayerStats o) {
-        return (int) calculateAssistToTurnoverRatio(turnovers) - (int) calculateAssistToTurnoverRatio(o.turnovers);
+        return Double.compare(calculateAssistToTurnoverRatio(turnovers), calculateAssistToTurnoverRatio(o.turnovers));
+
     }
 
+    /**
+     *
+     * @param points
+     * @param assists
+     * @param steals
+     */
     public void addStats(int points, int assists, int steals) {
+        if (points < 0 || assists < 0 || rebounds < 0 || turnovers < 0) {
+            throw new IllegalArgumentException("Stats cannot be negative.");
+        }
         super.addStats(points, assists, 0);
         this.steals += steals;
     }

@@ -1,4 +1,3 @@
-import java.io.Serializable;
 public class ForwardStats extends PlayerStats implements StatsOperations {
     private double fieldGoalPercentage;
 
@@ -28,7 +27,8 @@ public class ForwardStats extends PlayerStats implements StatsOperations {
     //TODO COMPLETE THE COMPARE
     @Override
     public int compareTo(PlayerStats o) {
-        return 0;
+        ForwardStats otherForward = (ForwardStats) o;
+        return Double.compare(this.calculateEfficiency(10, 20), otherForward.calculateEfficiency(10, 20));
     }
 
     /**
@@ -48,6 +48,9 @@ public class ForwardStats extends PlayerStats implements StatsOperations {
      * Adds forward-specific stats.
      */
     public void addStats(int points, int rebounds, int assists) {
+        if (points < 0 || assists < 0 || rebounds < 0) {
+            throw new IllegalArgumentException("Stats cannot be negative.");
+        }
         super.addStats(points, assists, rebounds);
     }
 }

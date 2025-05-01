@@ -28,8 +28,11 @@ public class CenterStats extends PlayerStats implements StatsOperations {
     }
 
     public void addStats(int points, int assists, int rebounds, int turnovers, int blocks) {
+        if (points < 0 || assists < 0 || rebounds < 0 || turnovers < 0 || blocks < 0) {
+            throw new IllegalArgumentException("Stats cannot be negative.");
+        }
         super.addStats(points, assists, rebounds);
-        this.blocks = blocks;
+        this.blocks += blocks;
     }
 
     @Override
