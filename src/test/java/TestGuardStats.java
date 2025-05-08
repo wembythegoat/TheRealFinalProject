@@ -46,11 +46,11 @@ public class TestGuardStats {
 
         System.setOut(originalOut);
 
-        String expectedOutput = "Player: Jrue Holiday\n" +
-                                "Points: 15\n" +
-                                "Assists: 5\n" +
-                                "Steal: 3\n" +
-                                "Assist-to-turnover Ratio: 2.5\n";
+        String expectedOutput = "Player: " + "Jrue Holiday" +
+                                "\nPoints: " + "15" +
+                                "\nAssists: " + "5" +
+                                "\nSteal: 3\n" +
+                                "Assist-to-turnover Ratio: 2.5";
 
         Assertions.assertEquals(expectedOutput, outputStream.toString(), "displayStats() output did not match expected format.");
 

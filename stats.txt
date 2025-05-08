@@ -1,0 +1,3 @@
+GuardStats,Stephen Curry,30,8,4,2
+ForwardStats,LeBron James,25,10,9,3
+CenterStats,Joel Embiid,28,4,12,2
