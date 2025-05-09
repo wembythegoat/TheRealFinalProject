@@ -22,6 +22,10 @@ public class GameStats implements StatsOperations {
         System.out.println("Total Score: " + totalScore);
     }
 
+    /**
+     * Adds the provided points to the team's total score.
+     * @param points The number of points to be added to the total score.
+     */
     public void addScore(int points) {
         if (points < 0) {
             System.out.println("Points cannot be negative");

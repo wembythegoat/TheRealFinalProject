@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestGuardStats {
     @Test
@@ -46,11 +48,11 @@ public class TestGuardStats {
 
         System.setOut(originalOut);
 
-        String expectedOutput = "Player: " + "Jrue Holiday" +
-                                "\nPoints: " + "15" +
-                                "\nAssists: " + "5" +
-                                "\nSteal: 3\n" +
-                                "Assist-to-turnover Ratio: 2.5";
+        String expectedOutput = "Player: Jrue Holiday\n" +
+                                "Points: 15\n" +
+                                "Assists: 5\n" +
+                                "Steal: 3\n" +
+                                "Assist-to-turnover Ratio: 2.5\n";
 
         Assertions.assertEquals(expectedOutput, outputStream.toString(), "displayStats() output did not match expected format.");
 

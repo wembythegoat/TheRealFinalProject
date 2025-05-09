@@ -24,7 +24,11 @@ public class ForwardStats extends PlayerStats implements StatsOperations {
         return (fgPercentage + super.getRebounds() + super.getAssists()) / 3;
     }
 
-    //TODO COMPLETE THE COMPARE
+    /**
+     *
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(PlayerStats o) {
         ForwardStats otherForward = (ForwardStats) o;
@@ -45,12 +49,23 @@ public class ForwardStats extends PlayerStats implements StatsOperations {
     }
 
     /**
-     * Adds forward-specific stats.
+     * Adds the provided stats to the player's existing totals.
+     * @param points The number of points scored by the player in a game.
+     * @param rebounds The number of rebounds secured by the player.
+     * @param assists The number of assists made by the player.
      */
     public void addStats(int points, int rebounds, int assists) {
         if (points < 0 || assists < 0 || rebounds < 0) {
             throw new IllegalArgumentException("Stats cannot be negative.");
         }
         super.addStats(points, assists, rebounds);
+    }
+
+    public double getFieldGoalPercentage() {
+        return fieldGoalPercentage;
+    }
+
+    public void setFieldGoalPercentage(double fieldGoalPercentage) {
+        this.fieldGoalPercentage = fieldGoalPercentage;
     }
 }

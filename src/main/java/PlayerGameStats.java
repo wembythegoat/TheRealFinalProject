@@ -14,8 +14,8 @@ public class PlayerGameStats extends GameStats {
     }
 
     /**
-     *
-     * @param player
+     * Adds a player's statistics to the list of player stats for the game.
+     * @param player The PlayerStats object representing the player's game stats.
      */
     public void addPlayerStats(PlayerStats player) {
         if (player == null) {

@@ -14,8 +14,9 @@ public class TeamGameStats extends GameStats {
     }
 
     /**
-     *
-     * @return
+     * Calculates the team's efficiency based on total score, fouls, and turnovers.
+     * Efficiency is defined as the ratio of total score to the sum of fouls and turnovers.
+     * @return The team's efficiency
      */
     public double calculateTeamEfficiency() {
         if (totalFouls == 0 && totalTurnovers == 0) {
@@ -25,9 +26,10 @@ public class TeamGameStats extends GameStats {
     }
 
     /**
-     *
-     * @param points
-     * @param turnovers
+     * Adds the provided points and turnovers to the team's game statistics.
+     * Also increases the total fouls randomly within a range of 0 to 4.
+     * @param points The number of points scored in the game.
+     * @param turnovers The number of turnovers committed.
      */
     public void addStats(int points, int turnovers) {
         addScore(points);
@@ -51,4 +53,3 @@ public class TeamGameStats extends GameStats {
         this.totalTurnovers = totalTurnovers;
     }
 }
-// TODO PlayerGameStats

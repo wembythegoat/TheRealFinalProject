@@ -11,9 +11,11 @@ public class GuardStats extends PlayerStats implements StatsOperations {
     }
 
     /**
-     *
-     * @param turnovers
-     * @return
+     * Calculates the assist-to-turnover ratio for a player.
+     * This metric represents how efficiently a player distributes the ball
+     * while minimizing turnovers.
+     * @param turnovers The number of turnovers made by the player.
+     * @return The assist-to-turnover ratio.
      */
     public double calculateAssistToTurnoverRatio(int turnovers) {
         if (turnovers == 0) {
@@ -36,6 +38,11 @@ public class GuardStats extends PlayerStats implements StatsOperations {
         System.out.println("Assist-to-turnover Ratio: " + calculateAssistToTurnoverRatio(turnovers));
     }
 
+    /**
+     * Compares this player's assist-to-turnover ratio with another player's.
+     * @param o the object to be compared.
+     * @return A negative integer if this player's ratio is lower, zero if the ratios are equal
+     */
     @Override
     public int compareTo(PlayerStats o) {
         return Double.compare(calculateAssistToTurnoverRatio(turnovers), calculateAssistToTurnoverRatio(o.turnovers));
@@ -43,10 +50,10 @@ public class GuardStats extends PlayerStats implements StatsOperations {
     }
 
     /**
-     *
-     * @param points
-     * @param assists
-     * @param steals
+     * Updates the player's statistics by adding new game stats.
+     * @param points The number of points scored in the game.
+     * @param assists The number of assists recorded.
+     * @param steals The number of steals made.
      */
     public void addStats(int points, int assists, int steals) {
         if (points < 0 || assists < 0 || rebounds < 0 || turnovers < 0) {

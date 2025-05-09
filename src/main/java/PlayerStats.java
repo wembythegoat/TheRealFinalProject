@@ -22,9 +22,10 @@ public abstract class PlayerStats implements Comparable<PlayerStats>, StatsOpera
     }
 
     /**
-     * @param points
-     * @param assists
-     * @param rebounds
+     * Adds the provided stats to the player's existing totals.
+     * @param points The number of points scored by the player.
+     * @param assists The number of assists made.
+     * @param rebounds The number of rebounds secured.
      */
     public void addStats(int points, int assists, int rebounds) {
         if (points < 0 || assists < 0 || rebounds < 0 || turnovers < 0) {
@@ -36,9 +37,6 @@ public abstract class PlayerStats implements Comparable<PlayerStats>, StatsOpera
         this.turnovers += turnovers;
     }
 
-    /**
-     *
-     */
     @Override
     public void displayStats() {
         System.out.println("Player: " + name);
@@ -48,10 +46,6 @@ public abstract class PlayerStats implements Comparable<PlayerStats>, StatsOpera
         System.out.println("Turnovers: " + turnovers);
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String toString() {
         return "PlayerStats{" +
@@ -102,5 +96,4 @@ public abstract class PlayerStats implements Comparable<PlayerStats>, StatsOpera
     public void setTurnovers(int turnovers) {
         this.turnovers = turnovers;
     }
-    // TODO DO GuardStats, ForwardStats, and CenterStats
 }
