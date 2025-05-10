@@ -52,7 +52,7 @@ public class StatsFileManager {
             }
             System.out.println("Stats loaded from " + FILE_NAME);
         } catch (IOException e) {
-            System.err.println("Error loading player stats: " + e.getMessage());
+            System.out.println("Error loading player stats: " + e.getMessage());
         }
         return players;
     }

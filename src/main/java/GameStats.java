@@ -28,7 +28,7 @@ public class GameStats implements StatsOperations {
      */
     public void addScore(int points) {
         if (points < 0) {
-            System.out.println("Points cannot be negative");
+            throw new IllegalArgumentException("Points cannot be negative");
         }
         totalScore += points;
     }

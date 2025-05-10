@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class TestCenterStats {
     @Test
     public void testCalculateBlockRate_ValidGames() {
@@ -38,4 +41,33 @@ public class TestCenterStats {
         Assertions.assertEquals(12, player.getRebounds());
         Assertions.assertEquals(6, player.getTurnovers());
     }
+
+    @Test
+    public void testDisplayStats() {
+        // Arrange: Redirect console output
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        // Create a test player instance
+        CenterStats player = new CenterStats("Jokic", 30, 8, 10, 5, 5);
+
+        // Act: Call displayStats()
+        player.displayStats();
+
+        // Restore system output
+        System.setOut(originalOut);
+
+        // Expected output (formatted properly)
+        String expectedOutput = "Player: Jokic\n" +
+                "Points: 30\n" +
+                "Assists: 8\n" +
+                "Rebounds: 10\n" +
+                "Blocks: 5\n" +
+                "Block Rate: " + player.calculateBlockRate(10) + "\n";
+
+        // Assert: Compare captured output with expected result
+        Assertions.assertEquals(expectedOutput, outputStream.toString(), "displayStats() output did not match expected format.");
+    }
 }
+

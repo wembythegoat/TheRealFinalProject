@@ -18,10 +18,15 @@ public class TestPlayerGameStats {
     @Test
     public void testAddPlayerStats_NullPlayer() {
         PlayerGameStats gameStats = new PlayerGameStats();
+        boolean exceptionThrown = false;
 
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> {
-            gameStats.addPlayerStats(null);
-        }, "Adding a null player should throw an exception.");
+        try {
+            gameStats.addPlayerStats(null); // Trying to add a null player
+        } catch (IllegalArgumentException e) {
+            exceptionThrown = true;
+        }
+
+        Assertions.assertTrue(exceptionThrown, "Adding a null player should throw an exception.");
     }
 
     @Test
